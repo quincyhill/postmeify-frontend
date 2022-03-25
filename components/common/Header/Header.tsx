@@ -9,7 +9,7 @@ interface NavLinkProps {
 
 const NavLinkContainer = ({ children }: NavLinkProps) => {
   return (
-    <div className="flex items-center text-sm mx-4 my-0 text-slate-500 dark:text-slate-100 font-semibold tracking-wide pb-1 border-b-2 border-transparent hover:border-rose-600 hover:text-rose-600 dark:hover:text-rose-600">
+    <div className="flex items-center text-sm mx-4 my-0 text-slate-500 font-semibold tracking-wide pb-1 border-b-2 border-transparent hover:border-rose-600 hover:text-rose-600">
       {children}
     </div>
   )
@@ -44,12 +44,12 @@ export default function Header() {
   const [notificationsIsOpen, setNotificationsIsOpen] = useState(false)
 
   return (
-    <nav className="bg-white dark:bg-slate-900 border-b-2 border-slate-200 px-2 py-4">
+    <nav className="bg-white border-b-2 border-slate-200 px-2 py-4">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <div>
           <Link href="/">
             <a className="flex">
-              <span className="self-center text-lg font-semibold whitespace-nowrap text-slate-900 dark:text-slate-100 hover:text-rose-600 dark:hover:text-rose-600">
+              <span className="self-center text-lg font-semibold whitespace-nowrap text-slate-900 hover:text-rose-600 ">
                 POSTMEIFY
               </span>
             </a>

@@ -1,8 +1,8 @@
-export default function SettingsPage() {
+export default function MessagesPage() {
   return (
     <div>
       <section className="">
-        <h1>Settings pages</h1>
+        <h1>Messages</h1>
       </section>
     </div>
   )
