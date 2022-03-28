@@ -8,7 +8,7 @@ interface Props {
 const AvatarLink = ({ user }: Props) => {
   const { id, username, displayName } = user
   return (
-    <Link href="/">
+    <Link href={`user/${username}`}>
       <a className="flex flex-row p-2 items-center hover:bg-slate-100 rounded-md">
         <img
           className="bg-green-200 h-12 w-12 mr-2 rounded-full "

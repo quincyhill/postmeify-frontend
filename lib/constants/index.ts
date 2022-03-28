@@ -6,3 +6,4 @@ export const LocalHost = 'http://localhost:8000'
 export const contactsListURL = `${LANHost}/api/contacts`
 export const imagePostsURL = `${LANHost}/api/imageposts`
 export const videoPostsURL = `${LANHost}/api/videoposts`
+export const usersListURL = `${LANHost}/api/users`
