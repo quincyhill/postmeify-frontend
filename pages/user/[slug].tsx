@@ -48,6 +48,7 @@ interface Props {
 }
 
 export default function UserPage({ user }: Props) {
+  // for some reason, if I navigate from this page to another page, then back without refreshing the app it does a 404
   const [users, setUsers] = useState<User[]>([])
   const [videosSelected, setVideosSelected] = useState<boolean>(true)
   const [imagesSelected, setImagesSelected] = useState<boolean>(false)
@@ -73,7 +74,10 @@ export default function UserPage({ user }: Props) {
       <section className="flex flex-col p-4">
         <div className="flex flex-row">
           <div className="flex">
-            <img className="bg-green-200 w-16 h-16 rounded-full cursor-pointer" />
+            <img
+              src={user.avatar_url}
+              className="bg-green-200 w-16 h-16 rounded-full cursor-pointer"
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-semibold text-2xl">{user.username}</span>

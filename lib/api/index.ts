@@ -123,12 +123,6 @@ export const getUser = async (username: string): Promise<User> => {
   } catch (error) {
     console.error(error)
     console.log('Instead returing the detailed fake user')
-    return {
-      id: last_digit,
-      username: username,
-      display_name: `Bob The ${last_digit}`,
-      email: `bob.${last_digit}@mail.com`,
-      biography: faker.lorem.paragraph(),
-    }
+    return fakeUserList[last_digit]
   }
 }
