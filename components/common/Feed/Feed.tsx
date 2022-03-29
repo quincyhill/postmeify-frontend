@@ -14,18 +14,13 @@ export default function Feed({ imagePosts, videoPosts }: Props) {
       <div className="flex flex-col px-4 lg:px-0">
         {imagePosts && (
           <div>
-            {imagePosts.map((post, key) => {
-              // Only the first 3 posts for now
-              if (key < 3) {
-                return <ImageCard key={key} post={post} />
-              } else {
-                return null
-              }
-            })}
+            {imagePosts.map((post, key) => (
+              <ImageCard key={key} post={post} />
+            ))}
           </div>
         )}
       </div>
-      <div className="hidden">
+      <div className="flex flex-col px-4 lg:px-0">
         {videoPosts && (
           <div>
             {videoPosts.map((post, key) => (

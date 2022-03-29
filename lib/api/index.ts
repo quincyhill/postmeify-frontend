@@ -58,8 +58,7 @@ export const getImagePosts = async () => {
         title: faker.lorem.sentence(),
         description: faker.lorem.paragraph(),
         tags: tagsList,
-        img_src: faker.image.imageUrl(),
-        // Again valid random owner
+        img_src: '/test_img.jpg',
         owner: fakeUserList[faker.datatype.number({ min: 0, max: 9 })],
       })
     }
@@ -83,15 +82,14 @@ export const getVideoPosts = async () => {
       tagsList = new Array(randomNumTags)
         .fill(null)
         .map(() => faker.lorem.word())
+
       fakeVideoPosts.push({
         id: i,
         created: faker.date.past().toISOString(),
         title: faker.lorem.sentence(),
         description: faker.lorem.paragraph(),
         tags: tagsList,
-        // Will eventually have some actual video url to connect to try out the vimex player
-        video_src: faker.image.imageUrl(),
-        // Ensure the random owner is valid
+        video_src: '/test_video.mp4',
         owner: fakeUserList[faker.datatype.number({ min: 0, max: 9 })],
       })
     }

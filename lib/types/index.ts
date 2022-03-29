@@ -23,6 +23,7 @@ export interface ImagePost extends Post {
 export interface VideoPost extends Post {
   video_src: string
   owner: User
+  n_plays?: number
 }
 
 export interface Contact {

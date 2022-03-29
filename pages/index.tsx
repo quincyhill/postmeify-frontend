@@ -30,7 +30,7 @@ export default function Index() {
           <MainAside userList={users} />
         </aside>
         <section className="lg:w-9/12">
-          <Feed imagePosts={imagePosts} videoPosts={videoPosts} />
+          <Feed videoPosts={videoPosts} />
         </section>
       </div>
     </div>

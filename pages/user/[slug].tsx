@@ -161,17 +161,19 @@ export default function UserPage({ user }: Props) {
           </div>
           {videosSelected && (
             <div id="Videos For This User" className="flex flex-wrap">
-              <img className="bg-green-200 w-48 h-64" />
+              <video loop autoPlay>
+                <source src="/test_video.mp4" />
+              </video>
             </div>
           )}
           {imagesSelected && (
             <div id="Videos For This User" className="flex flex-wrap">
-              <img className="bg-red-200 w-48 h-64" />
+              <img src="/test_img.jpg" loading="lazy" />
             </div>
           )}
           {likedSelected && (
             <div id="Videos For This User" className="flex flex-wrap">
-              <img className="bg-blue-200 w-48 h-64" />
+              <img className="bg-blue-200 w-48 h-64" loading="lazy" />
             </div>
           )}
         </div>

@@ -1,0 +1,9 @@
+.videoWrapper {
+  width: 100%;
+  max-width: 480px;
+  max-height: 720px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
