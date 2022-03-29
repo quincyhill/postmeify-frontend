@@ -21,7 +21,7 @@ export default function Layout({ children }: Props) {
       <div className="sticky top-0 z-50">
         <Header />
       </div>
-      <main className="min-h-screen">{children}</main>
+      <div className="min-h-screen">{children}</div>
     </div>
   )
 }

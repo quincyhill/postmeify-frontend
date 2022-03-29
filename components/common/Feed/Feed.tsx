@@ -1,5 +1,5 @@
 import { VideoCard, ImageCard } from '../../post'
-import { ImagePost, VideoPost, User } from '../../../lib/types'
+import { ImagePost, VideoPost } from '../../../lib/types'
 
 interface Props {
   imagePosts?: ImagePost[]
@@ -11,7 +11,7 @@ export default function Feed({ imagePosts, videoPosts }: Props) {
 
   return (
     <div>
-      <div>
+      <div className="flex flex-col px-4 lg:px-0">
         {imagePosts && (
           <div>
             {imagePosts.map((post, key) => {

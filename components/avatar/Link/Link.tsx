@@ -6,19 +6,21 @@ interface Props {
 }
 
 const AvatarLink = ({ user }: Props) => {
-  const { id, username, displayName } = user
+  const { id, username, display_name, avatar_url } = user
   return (
     <Link href={`user/${username}`}>
       <a className="flex flex-row p-2 items-center hover:bg-slate-100 rounded-md">
         <img
+          src={avatar_url}
+          alt="avatar"
           className="bg-green-200 h-12 w-12 mr-2 rounded-full "
           loading="lazy"
         />
-        <div className="flex flex-col">
+        <div className="hidden lg:flex lg:flex-col">
           <span className="font-semibold text-xl">{username}</span>
-          {displayName && (
+          {display_name && (
             <div>
-              <span className="text-sm text-slate-500">{displayName}</span>
+              <span className="text-sm text-slate-500">{display_name}</span>
             </div>
           )}
         </div>

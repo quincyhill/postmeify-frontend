@@ -24,7 +24,7 @@ const Card = ({ post }: Props) => {
             </Link>
             <Link href="#">
               <a className="pl-2 text-slate-900 cursor-pointer">
-                {owner.displayName}
+                {owner.display_name}
               </a>
             </Link>
           </div>

@@ -24,13 +24,15 @@ export default function Index() {
 
   // The main thing is going to be called a feed
   return (
-    <div className="flex flex-row">
-      <aside>
-        <MainAside userList={users} />
-      </aside>
-      <section>
-        <Feed imagePosts={imagePosts} videoPosts={videoPosts} />
-      </section>
+    <div className="flex flex-col items-center">
+      <div className="flex flex-row max-w-7xl">
+        <aside className="lg:w-3/12">
+          <MainAside userList={users} />
+        </aside>
+        <section className="lg:w-9/12">
+          <Feed imagePosts={imagePosts} videoPosts={videoPosts} />
+        </section>
+      </div>
     </div>
   )
 }

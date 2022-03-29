@@ -19,7 +19,6 @@ export const getContacts = async () => {
   } catch (error) {
     console.error(error)
     let fakeContactList: Contact[] = []
-
     for (let i = 0; i < 10; i++) {
       fakeContactList.push({
         id: faker.datatype.number(),
@@ -44,13 +43,21 @@ export const getImagePosts = async () => {
     console.error(error)
     console.log('Instead returning fake image posts')
     let fakeImagePostList: ImagePost[] = []
+    let randomNumTags: number
+    let tagsList: string[] = []
+
     for (let i = 0; i < 10; i++) {
+      randomNumTags = Math.floor(Math.random() * 10) + 5
+      tagsList = new Array(randomNumTags)
+        .fill(null)
+        .map(() => faker.lorem.word())
+
       fakeImagePostList.push({
         id: i,
         created: faker.date.past().toISOString(),
         title: faker.lorem.sentence(),
         description: faker.lorem.paragraph(),
-        tags: faker.lorem.word(),
+        tags: tagsList,
         img_src: faker.image.imageUrl(),
         // Again valid random owner
         owner: fakeUserList[faker.datatype.number({ min: 0, max: 9 })],
@@ -69,13 +76,19 @@ export const getVideoPosts = async () => {
     console.log(error)
     console.log('Instead returning fake video posts')
     let fakeVideoPosts: VideoPost[] = []
+    let randomNumTags: number
+    let tagsList: string[] = []
     for (let i = 0; i < 10; i++) {
+      randomNumTags = Math.floor(Math.random() * 10) + 5
+      tagsList = new Array(randomNumTags)
+        .fill(null)
+        .map(() => faker.lorem.word())
       fakeVideoPosts.push({
         id: i,
         created: faker.date.past().toISOString(),
         title: faker.lorem.sentence(),
         description: faker.lorem.paragraph(),
-        tags: faker.lorem.word(),
+        tags: tagsList,
         // Will eventually have some actual video url to connect to try out the vimex player
         video_src: faker.image.imageUrl(),
         // Ensure the random owner is valid

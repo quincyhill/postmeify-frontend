@@ -1,8 +1,9 @@
 export interface User {
   id: number
   username: string
-  displayName?: string
+  display_name?: string
   email: string
+  avatar_url?: string
 }
 
 interface Post {
@@ -10,8 +11,7 @@ interface Post {
   created: string
   title: string
   description: string
-  // NOTE: Tags will be changed in the future to an array of strings once I get it to work
-  tags: string
+  tags: string[]
 }
 
 export interface ImagePost extends Post {

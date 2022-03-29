@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <nav className="bg-white border-b-2 border-slate-200 px-2 py-4">
-      <div className="container flex flex-wrap justify-between items-center mx-auto">
+      <div className="container flex flex-row justify-between items-center mx-auto">
         <div>
           <Link href="/">
             <a className="flex">
