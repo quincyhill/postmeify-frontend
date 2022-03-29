@@ -1,9 +1,10 @@
 export interface User {
   id: number
   username: string
-  display_name?: string
   email: string
   avatar_url?: string
+  biography?: string
+  display_name?: string
 }
 
 interface Post {

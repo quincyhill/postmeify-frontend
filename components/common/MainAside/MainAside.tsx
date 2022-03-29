@@ -60,7 +60,7 @@ export default function MainAside({ userList }: Props) {
       <section>
         <span className="hidden lg:block">Popular Topics</span>
         <ul className="flex flex-col">
-          <li>
+          <li className="flex justify-center lg:block">
             <AsideLink
               title="Comedy"
               href="/topic/comedy"
@@ -69,7 +69,7 @@ export default function MainAside({ userList }: Props) {
               <EmojiSmile className="h-8 w-8" />
             </AsideLink>
           </li>
-          <li>
+          <li className="flex justify-center lg:block">
             <AsideLink
               title="Gaming"
               href="/topic/gaming"
@@ -78,7 +78,7 @@ export default function MainAside({ userList }: Props) {
               <Controller className="h-8 w-8" />
             </AsideLink>
           </li>
-          <li>
+          <li className="flex justify-center lg:block">
             <AsideLink
               title="Food"
               href="/topic/food"
@@ -87,7 +87,7 @@ export default function MainAside({ userList }: Props) {
               <Egg className="h-8 w-8" />
             </AsideLink>
           </li>
-          <li>
+          <li className="flex justify-center lg:block">
             <AsideLink
               title="Dance"
               href="/topic/dance"
@@ -96,7 +96,7 @@ export default function MainAside({ userList }: Props) {
               <Stars className="h-8 w-8" />
             </AsideLink>
           </li>
-          <li>
+          <li className="flex justify-center lg:block">
             <AsideLink
               title="Beauty"
               href="/topic/beauty"
@@ -105,7 +105,7 @@ export default function MainAside({ userList }: Props) {
               <Brush className="h-8 w-8" />
             </AsideLink>
           </li>
-          <li>
+          <li className="flex justify-center lg:block">
             <AsideLink
               title="Sports"
               href="/topic/sports"

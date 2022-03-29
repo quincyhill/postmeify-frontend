@@ -22,5 +22,6 @@ for (let i = 0; i < 10; i++) {
     display_name: `Bob The ${i}`,
     email: `bob.${i}@mail.com`,
     avatar_url: faker.image.avatar(),
+    biography: faker.lorem.paragraph(),
   })
 }

@@ -99,7 +99,7 @@ export const getVideoPosts = async () => {
   }
 }
 
-export const getAllUsers = async () => {
+export const getAllUsers = async (): Promise<User[]> => {
   try {
     const res: AxiosResponse<User[]> = await axios.get(usersListURL)
     return res.data
@@ -110,9 +110,10 @@ export const getAllUsers = async () => {
   }
 }
 
-export const getUser = async (username: string) => {
+export const getUser = async (username: string): Promise<User> => {
   // I know this will be a number because of how I set it up so I dont really to need to check to make sure
   // Quick and dirty method
+  // NOTE: I should probably make some call to the current users instead of generating a new one to stay consistent but eh..
   const last_digit = Number(username.slice(-1))
 
   try {
@@ -125,8 +126,9 @@ export const getUser = async (username: string) => {
     return {
       id: last_digit,
       username: username,
-      displayName: `Bob The ${last_digit}`,
+      display_name: `Bob The ${last_digit}`,
       email: `bob.${last_digit}@mail.com`,
+      biography: faker.lorem.paragraph(),
     }
   }
 }
