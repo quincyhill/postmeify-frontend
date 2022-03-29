@@ -1,36 +1,35 @@
 import { useState, useEffect } from 'react'
-import { Card } from '../components/post'
-import { getAllUsers } from '../lib/api'
-import { MainAside } from '../components/common'
-import type { User } from '../lib/types'
+import { getAllUsers, getImagePosts, getVideoPosts } from '../lib/api'
+import { MainAside, Feed } from '../components/common'
+import type { User, ImagePost, VideoPost } from '../lib/types'
 
 export default function Index() {
   // fake users will be generated from fakerjs until its moved to the backend
-  const [fakeUsers, setFakeUsers] = useState<User[]>([])
+  const [users, setUsers] = useState<User[]>([])
+  const [videoPosts, setVideoPosts] = useState<VideoPost[]>([])
+  const [imagePosts, setImagePosts] = useState<ImagePost[]>([])
 
-  // Not useful yet
   useEffect(() => {
-    const getmyfakeusers = async () => {
+    const makeApiCalls = async () => {
       const fakeUsers = await getAllUsers()
-      setFakeUsers(fakeUsers)
-    }
+      const fakeVideoPosts = await getVideoPosts()
+      const fakeImagePosts = await getImagePosts()
 
-    getmyfakeusers()
+      setUsers(fakeUsers)
+      setVideoPosts(fakeVideoPosts)
+      setImagePosts(fakeImagePosts)
+    }
+    makeApiCalls()
   }, [])
 
+  // The main thing is going to be called a feed
   return (
     <div className="flex flex-row">
       <aside>
-        <MainAside userList={fakeUsers} />
+        <MainAside userList={users} />
       </aside>
       <section>
-        {fakeUsers.length > 0 && (
-          <ul>
-            <li>
-              <Card key={2} user={fakeUsers[0]} />
-            </li>
-          </ul>
-        )}
+        <Feed imagePosts={imagePosts} videoPosts={videoPosts} />
       </section>
     </div>
   )

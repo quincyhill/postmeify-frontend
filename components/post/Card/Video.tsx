@@ -1,15 +1,16 @@
-import type { User } from '../../../lib/types'
+import type { VideoPost } from '../../../lib/types'
 import Link from 'next/link'
 import { Tag, MusicLink } from '../../link'
 import { HeartFill, ChatDotsFill, ShareFill } from 'react-bootstrap-icons'
 
 interface Props {
-  user: User
+  post: VideoPost
 }
 
-const Card = ({ user }: Props) => {
+const Card = ({ post }: Props) => {
   // Nah just gonna use flexbox since I know it better for now
-  const { id, username, displayName } = user
+  const { created, description, video_src, owner, tags, title } = post
+
   return (
     <div className="flex flex-col">
       <div className="flex flex-row" id="top-part">
@@ -18,12 +19,12 @@ const Card = ({ user }: Props) => {
           <div className="flex flex-row">
             <Link href="#">
               <a className=" font-semibold text-xl text-slate-900 hover:underline cursor-pointer">
-                {username}
+                {owner.username}
               </a>
             </Link>
             <Link href="#">
               <a className="pl-2 text-slate-900 cursor-pointer">
-                {displayName}
+                {owner.displayName}
               </a>
             </Link>
           </div>

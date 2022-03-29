@@ -1,20 +1,26 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Search } from 'react-bootstrap-icons'
+import Router from 'next/router'
 
 interface FormInput {
   query: string
 }
 
 const Form = () => {
+  // Each character entry results in a query to the server to update results
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<FormInput>()
 
   const onSubmit: SubmitHandler<FormInput> = (data) => {
     console.log('query: ' + data.query)
+    Router.push('/search?q=' + data.query)
   }
+
+  console.log(watch('query'))
 
   return (
     <form

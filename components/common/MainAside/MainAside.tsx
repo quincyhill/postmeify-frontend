@@ -11,12 +11,12 @@ import {
   CameraVideo,
 } from 'react-bootstrap-icons'
 
-import { User, UserList } from '../../../lib/types'
+import { User } from '../../../lib/types'
 import { AvatarLink } from '../../avatar'
 import { Footer } from '..'
 
 interface Props {
-  userList: UserList
+  userList: User[]
 }
 
 export default function MainAside({ userList }: Props) {
@@ -44,7 +44,7 @@ export default function MainAside({ userList }: Props) {
         <span>Popular Topics</span>
         <ul className="flex flex-col">
           <li>
-            <AsideLink title="Comedy" href="/topics/comedy">
+            <AsideLink title="Comedy" href="/topic/comedy">
               <EmojiSmile className="h-8 w-8" />
             </AsideLink>
           </li>

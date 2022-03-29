@@ -6,10 +6,11 @@ export interface User {
 }
 
 interface Post {
+  id: number
   created: string
   title: string
   description: string
-  // NOTE: Tags will be changed in the future
+  // NOTE: Tags will be changed in the future to an array of strings once I get it to work
   tags: string
 }
 
