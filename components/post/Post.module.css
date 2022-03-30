@@ -1,4 +1,5 @@
-.videoWrapper {
+.videoWrapper,
+.imageWrapper {
   width: 100%;
   max-width: 480px;
   max-height: 720px;
@@ -8,12 +9,20 @@
   overflow: hidden;
 }
 
-.imageWrapper {
+.videoThumbnailWrapper,
+.imageThumbnailWrapper {
   width: 100%;
-  max-width: 480px;
-  max-height: 720px;
+  max-width: 240px;
+  max-height: 360px;
   position: relative;
   display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 240px;
   justify-content: center;
   overflow: hidden;
 }

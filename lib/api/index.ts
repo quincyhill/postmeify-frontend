@@ -91,6 +91,7 @@ export const getVideoPosts = async () => {
         tags: tagsList,
         video_src: '/test_video.mp4',
         owner: fakeUserList[faker.datatype.number({ min: 0, max: 9 })],
+        n_plays: faker.datatype.number({ min: 20, max: 20000000 }),
       })
     }
     return fakeVideoPosts
@@ -109,13 +110,9 @@ export const getAllUsers = async (): Promise<User[]> => {
 }
 
 export const getUser = async (username: string): Promise<User> => {
-  // I know this will be a number because of how I set it up so I dont really to need to check to make sure
-  // Quick and dirty method
-  // NOTE: I should probably make some call to the current users instead of generating a new one to stay consistent but eh..
   const last_digit = Number(username.slice(-1))
-
+  console.log('The last digit is: ' + last_digit)
   try {
-    // going with username instead of id since it would be easier on the frontend to query
     const res: AxiosResponse<User> = await axios.get(userDetailUrl(username))
     return res.data
   } catch (error) {

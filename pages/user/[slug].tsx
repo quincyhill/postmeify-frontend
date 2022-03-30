@@ -1,10 +1,20 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { User } from '../../lib/types'
-import { getAllUsers, getUser } from '../../lib/api'
+import { User, VideoPost, ImagePost } from '../../lib/types'
+import {
+  getAllUsers,
+  getUser,
+  getVideoPosts,
+  getImagePosts,
+} from '../../lib/api'
 import { ParsedUrlQuery } from 'querystring'
 import { MainAside } from '../../components/common'
 import { useEffect, useState } from 'react'
 import { Share, ChatDots } from 'react-bootstrap-icons'
+import {
+  VideoThumbnail,
+  ImageThumbnail,
+  VideoCard,
+} from '../../components/post'
 
 interface Params extends ParsedUrlQuery {
   slug: string
@@ -19,8 +29,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       slug: user.username,
     },
   }))
-
-  console.log('From getstaticpaths: ', userPaths)
 
   return {
     paths: userPaths,
@@ -50,17 +58,21 @@ interface Props {
 export default function UserPage({ user }: Props) {
   // for some reason, if I navigate from this page to another page, then back without refreshing the app it does a 404
   const [users, setUsers] = useState<User[]>([])
-  const [videosSelected, setVideosSelected] = useState<boolean>(true)
+  const [videoPosts, setVideoPosts] = useState<VideoPost[]>([])
+  const [imagePosts, setImagePosts] = useState<ImagePost[]>([])
+  const [videosSelected, setVideosSelected] = useState<boolean>(false)
   const [imagesSelected, setImagesSelected] = useState<boolean>(false)
-  const [likedSelected, setLikedSelected] = useState<boolean>(false)
+  const [likedSelected, setLikedSelected] = useState<boolean>(true)
 
-  // Ran once its mounted
   useEffect(() => {
-    // Stuff
     const makeApiCalls = async () => {
-      // yes
       const fakeUsers = await getAllUsers()
+      const fakeVideoPosts = await getVideoPosts()
+      const fakeImagePosts = await getImagePosts()
+
       setUsers(fakeUsers)
+      setVideoPosts(fakeVideoPosts)
+      setImagePosts(fakeImagePosts)
     }
 
     makeApiCalls()
@@ -160,15 +172,36 @@ export default function UserPage({ user }: Props) {
             </div>
           </div>
           {videosSelected && (
-            <div id="Videos For This User" className="flex flex-wrap">
-              <video loop autoPlay>
-                <source src="/test_video.mp4" />
-              </video>
+            <div
+              id="Videos For This User"
+              className="flex flex-wrap bg-green-200 p-2"
+            >
+              {videoPosts ? (
+                <div className="flex flex-wrap">
+                  {videoPosts.map((post, key) => (
+                    <div key={key} className="mr-2 mb-2">
+                      <VideoThumbnail key={key} post={post} />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div>No Videos</div>
+              )}
             </div>
           )}
           {imagesSelected && (
-            <div id="Videos For This User" className="flex flex-wrap">
-              <img src="/test_img.jpg" loading="lazy" />
+            <div id="Videos For This User" className="flex flex-wrap p-2">
+              {imagePosts ? (
+                <div className="flex flex-wrap">
+                  {imagePosts.map((post, key) => (
+                    <div key={key} className="mr-2 mb-2">
+                      <ImageThumbnail key={key} post={post} />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div>No Images</div>
+              )}
             </div>
           )}
           {likedSelected && (

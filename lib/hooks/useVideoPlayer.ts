@@ -77,6 +77,13 @@ const useVideoPlayer = (videoElement: RefObject<HTMLVideoElement>) => {
     }
   }
 
+  const resetVideo = () => {
+    if (videoElement !== null && videoElement.current !== null) {
+      videoElement.current.currentTime = 0
+      setProgress(0)
+    }
+  }
+
   const toggleMute = () => {
     setIsMuted(!isMuted)
   }
@@ -91,7 +98,9 @@ const useVideoPlayer = (videoElement: RefObject<HTMLVideoElement>) => {
 
   return {
     isPlaying,
+    setIsPlaying,
     progress,
+    resetVideo,
     speed,
     isMuted,
     currentTimeFormatted,
