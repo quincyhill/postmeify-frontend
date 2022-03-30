@@ -48,7 +48,8 @@ const useVideoPlayer = (videoElement: RefObject<HTMLVideoElement>) => {
       const totalSecondsInteger = Math.floor(videoElement.current.duration)
       setDurationFormatted(formatTime(totalSecondsInteger))
     }
-  }, [videoElement])
+    // For some reason its needs to be reset on progress update but eh this works, seems unnecessary
+  }, [progress, videoElement])
 
   const handleOnTimeUpdate = () => {
     // Get current time of video

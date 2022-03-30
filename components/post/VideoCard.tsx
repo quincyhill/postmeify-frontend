@@ -1,6 +1,7 @@
-import type { VideoPost } from '../../../lib/types'
+import type { VideoPost } from '../../lib/types'
 import Link from 'next/link'
-import { Tag, MusicLink } from '../../link'
+import { Tag } from '../link'
+
 import {
   HeartFill,
   ChatDotsFill,
@@ -10,8 +11,8 @@ import {
   VolumeUp,
   VolumeMute,
 } from 'react-bootstrap-icons'
-import useVideoPlayer from '../../../lib/hooks/useVideoPlayer'
-import styles from './Video.module.css'
+import useVideoPlayer from '../../lib/hooks/useVideoPlayer'
+import styles from './Post.module.css'
 import { useRef, useState } from 'react'
 
 interface Props {

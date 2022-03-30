@@ -1,4 +1,4 @@
-import { AsideLink } from '../../link'
+import { Topic } from '../link'
 import {
   EmojiSmile,
   Controller,
@@ -13,9 +13,9 @@ import {
 
 import { useRouter } from 'next/router'
 
-import { User } from '../../../lib/types'
-import { AvatarLink } from '../../avatar'
-import { Footer } from '..'
+import { User } from '../../lib/types'
+import { Link } from '../avatar'
+import { Footer } from '../common'
 
 interface Props {
   userList: User[]
@@ -29,31 +29,31 @@ export default function MainAside({ userList }: Props) {
     <div className="border-r-2 border-slate-200 shadow-lg lg:border-none lg:shadow-none">
       <ul className="flex flex-col m-2">
         <li>
-          <AsideLink
+          <Topic
             title="For You"
             href="/"
             is_current_path={current_path === '/'}
           >
             <HouseDoor className="w-8 h-8" />
-          </AsideLink>
+          </Topic>
         </li>
         <li>
-          <AsideLink
+          <Topic
             title="Following"
             href="/following"
             is_current_path={current_path === 'following'}
           >
             <People className="w-8 h-8" />
-          </AsideLink>
+          </Topic>
         </li>
         <li>
-          <AsideLink
+          <Topic
             title="LIVE"
             href="/live"
             is_current_path={current_path === 'live'}
           >
             <CameraVideo className="w-8 h-8" />
-          </AsideLink>
+          </Topic>
         </li>
       </ul>
       <hr />
@@ -61,58 +61,58 @@ export default function MainAside({ userList }: Props) {
         <span className="hidden lg:block">Popular Topics</span>
         <ul className="flex flex-col">
           <li className="flex justify-center lg:block">
-            <AsideLink
+            <Topic
               title="Comedy"
               href="/topic/comedy"
               is_current_path={current_path === 'comedy'}
             >
               <EmojiSmile className="h-8 w-8" />
-            </AsideLink>
+            </Topic>
           </li>
           <li className="flex justify-center lg:block">
-            <AsideLink
+            <Topic
               title="Gaming"
               href="/topic/gaming"
               is_current_path={current_path === 'gaming'}
             >
               <Controller className="h-8 w-8" />
-            </AsideLink>
+            </Topic>
           </li>
           <li className="flex justify-center lg:block">
-            <AsideLink
+            <Topic
               title="Food"
               href="/topic/food"
               is_current_path={current_path === 'food'}
             >
               <Egg className="h-8 w-8" />
-            </AsideLink>
+            </Topic>
           </li>
           <li className="flex justify-center lg:block">
-            <AsideLink
+            <Topic
               title="Dance"
               href="/topic/dance"
               is_current_path={current_path == 'dance'}
             >
               <Stars className="h-8 w-8" />
-            </AsideLink>
+            </Topic>
           </li>
           <li className="flex justify-center lg:block">
-            <AsideLink
+            <Topic
               title="Beauty"
               href="/topic/beauty"
               is_current_path={current_path === 'beauty'}
             >
               <Brush className="h-8 w-8" />
-            </AsideLink>
+            </Topic>
           </li>
           <li className="flex justify-center lg:block">
-            <AsideLink
+            <Topic
               title="Sports"
               href="/topic/sports"
               is_current_path={current_path === 'sports'}
             >
               <Wind className="h-8 w-8" />
-            </AsideLink>
+            </Topic>
           </li>
         </ul>
       </section>
@@ -125,7 +125,7 @@ export default function MainAside({ userList }: Props) {
           <ul>
             {userList.map((user: User, key) => (
               <li key={key}>
-                <AvatarLink user={user} />
+                <Link user={user} />
               </li>
             ))}
           </ul>
@@ -143,7 +143,7 @@ export default function MainAside({ userList }: Props) {
           <ul>
             {userList.map((user: User, key) => (
               <li key={key}>
-                <AvatarLink user={user} />
+                <Link user={user} />
               </li>
             ))}
           </ul>

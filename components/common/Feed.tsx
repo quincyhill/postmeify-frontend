@@ -1,5 +1,5 @@
-import { VideoCard, ImageCard } from '../../post'
-import { ImagePost, VideoPost } from '../../../lib/types'
+import { VideoCard, ImageCard } from '../post'
+import { ImagePost, VideoPost } from '../../lib/types'
 
 interface Props {
   imagePosts?: ImagePost[]

@@ -1,8 +1,8 @@
-import type { ImagePost } from '../../../lib/types'
+import type { ImagePost } from '../../lib/types'
 import Link from 'next/link'
-import { Tag } from '../../link'
+import { Tag } from '../link'
 import { HeartFill, ChatDotsFill, ShareFill } from 'react-bootstrap-icons'
-
+import styles from './Post.module.css'
 interface Props {
   post: ImagePost
 }
@@ -55,7 +55,11 @@ const Card = ({ post }: Props) => {
       <div className="flex flex-row">
         <div className="flex flex-row lg:w-16"></div>
         <div className="flex">
-          <img src={img_src} alt="Image Post" className="rounded-md" />
+          <img
+            src={img_src}
+            alt="Image Post"
+            className={`${styles.imageWrapper} rounded-md`}
+          />
         </div>
         <div className="flex flex-col ml-2">
           <div className="flex flex-col items-center mb-2">

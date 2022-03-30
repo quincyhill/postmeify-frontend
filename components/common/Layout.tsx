@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Header } from '..'
+import { Header } from '../common'
 
 import Head from 'next/head'
 

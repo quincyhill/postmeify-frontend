@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { User } from '../../../lib/types'
+import type { User } from '../../lib/types'
 
 interface Props {
   user: User

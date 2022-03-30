@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react'
 import Link from 'next/link'
 import { CloudUpload, Send, ChatSquare } from 'react-bootstrap-icons'
-import { SearchForm } from '../../form'
+import { SearchForm } from '../form'
 
 interface NavLinkProps {
   children: ReactNode
