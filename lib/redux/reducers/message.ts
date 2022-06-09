@@ -1,5 +1,6 @@
 import { SET_MESSAGE, CLEAR_MESSAGE } from '../actions/types'
 
+// Change this from just some object to maybe a string
 const initialState = {}
 
 export default function message(state = initialState, action: any) {

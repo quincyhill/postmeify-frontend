@@ -8,7 +8,6 @@ import {
   Wind,
   HouseDoor,
   People,
-  CameraVideo,
 } from 'react-bootstrap-icons'
 
 import { useRouter } from 'next/router'
@@ -44,15 +43,6 @@ export default function MainAside({ userList }: Props) {
             is_current_path={current_path === 'following'}
           >
             <People className="w-8 h-8" />
-          </Topic>
-        </li>
-        <li>
-          <Topic
-            title="LIVE"
-            href="/live"
-            is_current_path={current_path === 'live'}
-          >
-            <CameraVideo className="w-8 h-8" />
           </Topic>
         </li>
       </ul>
