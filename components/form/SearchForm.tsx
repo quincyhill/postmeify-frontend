@@ -33,7 +33,7 @@ const Form = () => {
           id="name"
           className="bg-white border border-slate-300 rounded-lg block w-full p-2.5"
           required
-          placeholder="Phone number, username, or email"
+          placeholder="Search Accounts"
           {...register('query')}
         />
       </div>

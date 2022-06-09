@@ -2,6 +2,7 @@ import { ReactNode, useState } from 'react'
 import Link from 'next/link'
 import { CloudUpload, Send, ChatSquare } from 'react-bootstrap-icons'
 import { SearchForm } from '../form'
+import store from '../../lib/redux/store'
 
 interface NavLinkProps {
   children: ReactNode
@@ -42,6 +43,9 @@ const NotificationsDropDown = () => {
 
 export default function Header() {
   const [notificationsIsOpen, setNotificationsIsOpen] = useState(false)
+  // Can check the state to see if user is logged in or not
+
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
 
   return (
     <nav className="bg-white border-b-2 border-slate-200 px-2 py-4">
@@ -59,29 +63,46 @@ export default function Header() {
           <SearchForm />
         </div>
         <div>
-          <ul className="flex flex-row mt-4 text-sm font-medium">
-            <li>
+          {isUserLoggedIn ? (
+            <ul className="flex flex-row mt-4 text-sm font-medium">
+              <li>
+                <NavLinkContainer>
+                  <Link href="/upload">
+                    <a>
+                      <CloudUpload className="w-6 h-6" />
+                    </a>
+                  </Link>
+                </NavLinkContainer>
+              </li>
               <NavLinkContainer>
-                <Link href="/upload">
+                <Link href="/messages">
                   <a>
-                    <CloudUpload className="w-6 h-6" />
+                    <Send className="w-6 h-6" />
                   </a>
                 </Link>
               </NavLinkContainer>
-            </li>
-            <NavLinkContainer>
-              <Link href="/messages">
-                <a>
-                  <Send className="w-6 h-6" />
-                </a>
-              </Link>
-            </NavLinkContainer>
-            <NavLinkContainer>
-              <button>
-                <ChatSquare className="w-6 h-6" />
-              </button>
-            </NavLinkContainer>
-          </ul>
+              <NavLinkContainer>
+                <button>
+                  <ChatSquare className="w-6 h-6" />
+                </button>
+              </NavLinkContainer>
+            </ul>
+          ) : (
+            <ul className="flex flex-row mt-4 text-sm font-medium">
+              <li>
+                <Link href="/login">
+                  <a
+                    className="bg-rose-500 text-white hover:bg-rose-600 rounded-md p-2"
+                    onClick={() => {
+                      console.log(store.getState())
+                    }}
+                  >
+                    Login
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </nav>

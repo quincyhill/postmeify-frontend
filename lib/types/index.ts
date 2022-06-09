@@ -1,3 +1,14 @@
+export interface LoginFormInput {
+  username: string
+  password: string
+}
+
+export interface SignupFormInput {
+  username: string
+  password: string
+  confirmPassword: string
+}
+
 export interface User {
   id: number
   username: string

@@ -1,18 +1,19 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
+import type { LoginFormInput } from '../../lib/types'
+import { useDispatch, useSelector } from 'react-redux'
+import Router from 'next/router'
 
-interface FormInput {
-  username: string
-  password: string
-}
+// Here is the function
+import { login } from '../../lib/redux/actions/auth'
 
 const Form = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormInput>()
+  } = useForm<LoginFormInput>()
 
-  const onSubmit: SubmitHandler<FormInput> = (data) => {
+  const onSubmit: SubmitHandler<LoginFormInput> = (data) => {
     console.log('username: ' + data.username)
     console.log('password: ' + data.password)
   }
@@ -23,15 +24,12 @@ const Form = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="mb-6">
-        <span className="text-4xl font-semibold">Postmeify</span>
-      </div>
-      <div className="mb-6">
         <input
           type="text"
           id="name"
           className="bg-white border border-slate-300 rounded-lg block w-full p-2.5"
           required
-          placeholder="Phone number, username, or email"
+          placeholder="Username"
           {...register('username')}
         />
       </div>
@@ -47,7 +45,7 @@ const Form = () => {
       </div>
       <button
         type="submit"
-        className="bg-rose-600 focus:ring-4 focus:ring-rose-600 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+        className="bg-rose-500 hover:bg-rose-600 focus:ring-2 focus:ring-rose-600 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center text-white"
       >
         Log In
       </button>

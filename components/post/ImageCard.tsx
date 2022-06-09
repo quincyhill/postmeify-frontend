@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Tag } from '../link'
 import { HeartFill, ChatDotsFill, ShareFill } from 'react-bootstrap-icons'
 import styles from './Post.module.css'
+
 interface Props {
   post: ImagePost
 }
